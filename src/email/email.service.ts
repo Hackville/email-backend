@@ -8,16 +8,15 @@ export class EmailService {
   private transporter: nodemailer.Transporter;
 
   constructor(private configService: ConfigService) {
-    const transporter = nodemailer.createTransport({
-      host: 'mail.forbessolarsystems.com',
+    this.transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
       port: 993,
       auth: {
-        user: 'lutor.ayangaor@forbessolarsystems.com',
-        pass: 'Luti4148',
+        user: 'lutor4148@gmail.com',
+        pass: 'rkfxtrchrjjextni'
       },
       debug: true, // Enable Nodemailer debugging
     });
-  console.log(transporter)
   }
 
   async sendEmail(to: string, subject: string, text: string) {
@@ -30,7 +29,7 @@ export class EmailService {
       });
       console.log(send);
       console.log('Email sent successfully');
-      return send
+      return send;
     } catch (error) {
       console.error('Error sending email:', error);
       return error.message;
