@@ -9,11 +9,11 @@ export class EmailService {
 
   constructor(private configService: ConfigService) {
     this.transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 993,
+      host: process.env['HOST'],
+      port: process.env['PORT'],
       auth: {
-        user: 'lutor4148@gmail.com',
-        pass: 'rkfxtrchrjjextni'
+        user: process.env['USERNAME'],
+        pass: process.env['PASSWORD'],
       },
       debug: true, // Enable Nodemailer debugging
     });
