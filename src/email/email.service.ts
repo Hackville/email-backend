@@ -9,11 +9,11 @@ export class EmailService {
 
   constructor(private configService: ConfigService) {
     this.transporter = nodemailer.createTransport({
-      host: process.env['HOST'],
-      port: process.env['PORT'],
+      host: process.env['EMAIL_HOST'],
+      port: process.env['EMAIL_PORT'],
       auth: {
-        user: process.env['USERNAME'],
-        pass: process.env['PASSWORD'],
+        user: process.env['EMAIL_USER'],
+        pass: process.env['EMAIL_PASS'],
       },
       debug: true, // Enable Nodemailer debugging
     });

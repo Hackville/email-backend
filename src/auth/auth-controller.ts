@@ -10,7 +10,7 @@ export class AuthController {
   @Post('register')
   async register(@Body() createUserDto: CreateUserDto, @Res() res: Response) {
     try {
-        console.log(createUserDto)
+       
       await this.authService.register(createUserDto);
       return res.status(HttpStatus.CREATED).json({ message: 'User registered successfully' });
     } catch (error) {
