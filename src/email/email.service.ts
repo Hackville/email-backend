@@ -9,20 +9,20 @@ export class EmailService {
 
   constructor(private configService: ConfigService) {
     this.transporter = nodemailer.createTransport({
-      host: process.env['EMAIL_HOST'],
-      port: process.env['EMAIL_PORT'],
+      host: 'smtp.gmail.com',
+      port: 587,
       auth: {
-        user: process.env['EMAIL_USER'],
-        pass: process.env['EMAIL_PASS'],
+        user: 'lutiayangaor@gmail.com',
+        pass: 'vdvgiahuxcwccppo',
       },
       debug: true, // Enable Nodemailer debugging
     });
   }
 
-  async sendEmail(to: string, subject: string, text: string) {
+  async sendEmail( from: string, to: string, subject: string, text: string) {
     try {
       const send = await this.transporter.sendMail({
-        from: this.configService.get('user'),
+        from,
         to,
         subject,
         text,

@@ -19,7 +19,7 @@ export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply((req, res, next) => {
-        res.header('Access-Control-Allow-Origin', 'https://mailer-psi.vercel.app'); // Replace with your frontend's URL
+        res.header('Access-Control-Allow-Origin', '*'); // Replace with your frontend's URL
         res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         next();

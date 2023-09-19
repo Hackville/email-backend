@@ -7,9 +7,9 @@ export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @Post('send')
-  async sendEmail(@Body() body: { to: string; subject: string; text: string }) {
-    const { to, subject, text } = body;
-    await this.emailService.sendEmail(to, subject, text);
+  async sendEmail(@Body() body: { from:string; to: string;  subject: string; text: string }) {
+    const { to, from, subject, text } = body;
+    await this.emailService.sendEmail(from, to, subject, text);
   
   }
 }
